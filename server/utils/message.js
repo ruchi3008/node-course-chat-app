@@ -6,6 +6,16 @@ var generateMessage =(from,text) => {
   }
 };
 
+var generateLocationMessage = (from,latitude,longitude) => {
+  var url = `http://google.com/maps?q=${latitude},${longitude}`;
+  return {
+    from,
+    url,
+    createAt : new Date().getTime()
+  }
+};
+
 module.exports ={
-  generateMessage
+  generateMessage,
+  generateLocationMessage
 };
