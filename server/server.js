@@ -23,7 +23,6 @@ io.on('connection',(socket) => {
   socket.broadcast.emit('newMessage',generateMessage('Admin','New User Joined'));
 
   socket.on('createMessage',function(msg,callback){
-    console.log(`${msg.from} : ${msg.text}`);
     io.emit('newMessage',generateMessage(msg.from,msg.text));
     callback();
   });
